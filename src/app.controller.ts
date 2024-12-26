@@ -1,6 +1,7 @@
 import {
   Controller,
   FileTypeValidator,
+  Get,
   MaxFileSizeValidator,
   ParseFilePipe,
   Post,
@@ -13,6 +14,11 @@ import { FileInterceptor } from '@nestjs/platform-express';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return 'hello';
+  }
 
   @Post('ocr')
   @UseInterceptors(FileInterceptor('file'))

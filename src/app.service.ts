@@ -6,6 +6,7 @@ export class AppService {
   async extractTextFromImage(file: Express.Multer.File): Promise<string> {
     const worker = await createWorker('eng');
     const recognizeResult = await worker.recognize(file.buffer);
+    await worker.terminate();
     return this.sanitizeText(recognizeResult.data.text);
   }
 
