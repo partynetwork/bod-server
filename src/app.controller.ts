@@ -26,7 +26,7 @@ export class AppController {
     @UploadedFile(
       new ParseFilePipe({
         validators: [
-          new MaxFileSizeValidator({ maxSize: 10000 }), // 10kb
+          new MaxFileSizeValidator({ maxSize: 100000 }), // 10kb
           new FileTypeValidator({ fileType: new RegExp('^image/') }),
         ],
       }),
